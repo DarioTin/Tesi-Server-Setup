@@ -1,0 +1,31 @@
+version: "3"
+services:
+  userservice:
+    image: dariotintore/user-service
+    container_name: user-service
+    ports:
+      - '8081:8081'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:./database/userdb
+  compilerservice:
+    image: dariotintore/compiler-service-node
+    container_name: compiler-service
+    ports:
+      - '8083:8083'
+  leaderboardservice:
+    image: dariotintore/leaderboard-service
+    container_name: leaderboard-service
+    ports:
+      - '8087:8087'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:./database/leaderboarddb
+  exerciseservice:
+    image: dariotintore/exercise-service
+    container_name: exercise-service
+    ports:
+      - '9090:9090'
+  frontend:
+    image: dariotintore/frontend
+    container_name: frontend
+    ports:
+      - '4200:80'
