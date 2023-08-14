@@ -3,6 +3,7 @@ services:
   userservice:
     image: dariotintore/user-service
     container_name: user-service
+    platform: linux/amd64
     ports:
       - '8081:8081'
     environment:
@@ -10,11 +11,13 @@ services:
   compilerservice:
     image: dariotintore/compiler-service-node
     container_name: compiler-service
+    platform: linux/amd64
     ports:
       - '8083:8083'
   leaderboardservice:
     image: dariotintore/leaderboard-service
     container_name: leaderboard-service
+    platform: linux/amd64
     ports:
       - '8087:8087'
     environment:
@@ -22,10 +25,12 @@ services:
   exerciseservice:
     image: dariotintore/exercise-service
     container_name: exercise-service
+    platform: linux/amd64
     ports:
       - '9090:9090'
   frontend:
     image: dariotintore/frontend
+    platform: linux/amd64
     container_name: frontend
     ports:
       - '4200:80'
